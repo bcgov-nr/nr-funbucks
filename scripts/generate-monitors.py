@@ -1,7 +1,9 @@
+# Install Python
+# run python3 generate-monitors.py
 ipFileHandler = open("fluentbit_agents.csv", "r")
 numLines = sum(1 for line in ipFileHandler)
 ipFileHandler.seek(0)
-opFileHandler = open("monitors.json", "w")
+opFileHandler = open("../output/monitors.json", "w")
 opFileHandler.write("[\n\t")
 j = 0
 for line in ipFileHandler:
