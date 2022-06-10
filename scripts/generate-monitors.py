@@ -1,6 +1,7 @@
 # Install Python
 # run python3 generate-monitors.py
-# run using container: podman run -it --rm --name generate-monitor -v "$PWD":/usr/src/myapp -w /usr/src/myapp python:3 python generate-monitors.p
+# run using container: 
+# podman run --rm --name generate-monitors -v $(pwd)/scripts:/home -v $(pwd)/output:/output your_python_image python3 generate-monitors.py
 ipFileHandler = open("fluentbit_agents.csv", "r")
 numLines = sum(1 for line in ipFileHandler)
 ipFileHandler.seek(0)
