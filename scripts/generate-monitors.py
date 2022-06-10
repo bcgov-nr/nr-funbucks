@@ -13,11 +13,11 @@ for line in ipFileHandler:
     j = j + 1
     for i in range(agentCount): 
         opFileHandler.write("{\n\t")
-        opFileHandler.write('"name": "nrm_' + server + '_fluent-bit.' + str(i) + '",')
+        opFileHandler.write('  "name": "nrm_' + server + '_fluent-bit.' + str(i) + '",')
         opFileHandler.write("\n\t")
-        opFileHandler.write('"server": "'+ server + '",')
+        opFileHandler.write('  "server": "'+ server + '",')
         opFileHandler.write("\n\t")
-        opFileHandler.write('"agent": ' + '"fluent-bit.' + str(i) + '"')
+        opFileHandler.write('  "agent": ' + '"fluent-bit.' + str(i) + '"')
         opFileHandler.write("\n\t")
         opFileHandler.write("}")
         if(j!=numLines or (j==numLines and i==agentCount)):
