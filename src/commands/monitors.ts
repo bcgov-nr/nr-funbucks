@@ -8,7 +8,7 @@ export default class Monitors extends Command {
 
   static examples = ["<%= config.bin %> <%= command.id %>"];
 
-  static args = [{ name: "file" }];
+  static args = [{ name: "filePath" }];
 
   public async run(): Promise<void> {
 
@@ -21,10 +21,12 @@ export default class Monitors extends Command {
     };
 
     const { args, flags } = await this.parse(Monitors);
+
+    const filePath = args["filePath"];
     const monitorJson = function (): string {
       let monitorsList: Monitor[] = [];
       const ipFile = fs
-        .readFileSync(path.join("scripts", "fluentbit_agents.csv"), "utf-8")
+        .readFileSync(filePath, "utf-8")
         .trim();
       const serverList = ipFile.split("\n");
       for (let i of serverList) {
