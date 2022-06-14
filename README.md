@@ -334,6 +334,6 @@ DESCRIPTION
 
 To run: 
 
-npx ts-node scripts/gen-monitors.ts
+./bin/dev monitors
 
 monitors.json file created in the output folder
