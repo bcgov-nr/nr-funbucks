@@ -1,10 +1,8 @@
 import * as fs from 'fs';
 
-const ipFile = fs.readFileSync('scripts/fluentbit_agents.csv', 'utf-8').trim();
-
-const serverList = ipFile.split('\n');
-
 const monitorJson = function(): string {
+    const ipFile = fs.readFileSync('scripts/fluentbit_agents.csv', 'utf-8').trim();
+    const serverList = ipFile.split('\n');
     let op = "[\n  ";
     for (let i in serverList) {
         let server = serverList[i].split(',')[0];
