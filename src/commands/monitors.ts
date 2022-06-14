@@ -1,5 +1,6 @@
 import {Command, Flags} from '@oclif/core';
 import * as fs from 'fs';
+const path = require('path');
 
 export default class Monitors extends Command {
   static description = 'generate monitor configuration'
@@ -13,7 +14,7 @@ export default class Monitors extends Command {
   public async run(): Promise<void> {
     const {args, flags} = await this.parse(Monitors);
     const monitorJson = function(): string {
-      const ipFile = fs.readFileSync('scripts/fluentbit_agents.csv', 'utf-8').trim();
+      const ipFile = fs.readFileSync(path.join('scripts','fluentbit_agents.csv'), 'utf-8').trim();
       const serverList = ipFile.split('\n');
       let op = '[\n  ';
       for (let i in serverList) {
