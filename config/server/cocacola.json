@@ -379,7 +379,8 @@
         "type": "tomcat",
         "context": {
           "app": "SNCSC",
-          "component": "sncsc-api"
+          "component": "sncsc-api",
+          "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*|^\\d+\\s+[<>]+.*/"
         }
       },
       {
