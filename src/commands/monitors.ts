@@ -1,4 +1,4 @@
-import {Command, Flags} from '@oclif/core'
+import {Command, Flags} from '@oclif/core';
 import * as fs from 'fs';
 
 export default class Monitors extends Command {
@@ -11,15 +11,15 @@ export default class Monitors extends Command {
   static args = [{name: 'file'}]
 
   public async run(): Promise<void> {
-    const {args, flags} = await this.parse(Monitors)
+    const {args, flags} = await this.parse(Monitors);
     const monitorJson = function(): string {
       const ipFile = fs.readFileSync('scripts/fluentbit_agents.csv', 'utf-8').trim();
       const serverList = ipFile.split('\n');
-      let op = "[\n  ";
+      let op = '[\n  ';
       for (let i in serverList) {
-          let server = serverList[i].split(',')[0];
-          let agentCount = Number(serverList[i].split(',')[1]);
-          for (let j=0; j<agentCount; j++)
+        const server = serverList[i].split(',')[0];
+        const agentCount = Number(serverList[i].split(',')[1]);
+        for (let j=0; j<agentCount; j++)
           { 
               op += "{\n  ";
               op += '  "name": "nrm_' + server + '_fluent-bit.' + j + '",'
