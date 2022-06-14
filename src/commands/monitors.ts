@@ -27,7 +27,6 @@ export default class Monitors extends Command {
         .readFileSync(path.join("scripts", "fluentbit_agents.csv"), "utf-8")
         .trim();
       const serverList = ipFile.split("\n");
-      let op = "";
       for (let i of serverList) {
         const serverName = i.split(",")[0];
         const agentCount = Number(i.split(",")[1]);
