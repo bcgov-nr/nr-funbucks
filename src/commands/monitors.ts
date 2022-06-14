@@ -1,6 +1,7 @@
 import { Command, Flags } from "@oclif/core";
 import * as fs from "fs";
 const path = require("path");
+const crypto = require('crypto');
 
 export default class Monitors extends Command {
   static description = "generate monitor configuration";
@@ -15,6 +16,8 @@ export default class Monitors extends Command {
       name: string;
       server: string;
       agent: string;
+      id1: number;
+      id2: number;
     };
 
     const { args, flags } = await this.parse(Monitors);
@@ -33,6 +36,8 @@ export default class Monitors extends Command {
             name: "nrm_" + serverName + "_fluent-bit." + j,
             server: serverName,
             agent: "fluent-bit." + j,
+            id1: crypto.createHash('sha256').update(serverName+j+'1').digest('hex'),
+            id2: crypto.createHash('sha256').update(serverName+j+'2').digest('hex'),
           };
           monitorsList.push(monitor);
         }
