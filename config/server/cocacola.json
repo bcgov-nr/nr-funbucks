@@ -310,7 +310,8 @@
         "type": "tomcat",
         "context": {
           "app": "NRISWS",
-          "component": "nrisws-api"
+          "component": "nrisws-api",
+          "contTomcatParserRegex": "/^[ \\ta-zA-Z\\D\\r].*|^\\d+\\s+[<>]+.*/"
         }
       },
       {
