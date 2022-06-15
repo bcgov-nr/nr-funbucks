@@ -7,6 +7,8 @@ const TEAMS_CHANNEL_ACTION_ID_2 = 2;
 const AUTOMATION_QUEUE_ACTION_ID_3 = 3;
 const JSON_FORMAT_SPACE_COUNT = 2;
 const ID_MAX_LENGTH = 20;
+const NEW_LINE_DELIMITER = '\n';
+const DELIMITER = ',';
 
 export default class Monitors extends Command {
   static description = 'generate monitor configuration';
@@ -34,10 +36,10 @@ export default class Monitors extends Command {
       const ipFile = fs
         .readFileSync(filePath, 'utf-8')
         .trim();
-      const serverList = ipFile.split('\n');
+      const serverList = ipFile.split(NEW_LINE_DELIMITER);
       for (let i of serverList) {
-        const serverName = i.split(',')[0];
-        const agentCount = Number(i.split(',')[1]);
+        const serverName = i.split(DELIMITER)[0];
+        const agentCount = Number(i.split(DELIMITER)[1]);
         for (let j = 0; j < agentCount; j++) {
           const monitor: Monitor = {
             name: 'nrm_' + serverName + '_fluent-bit.' + j,
