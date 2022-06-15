@@ -2,6 +2,11 @@ import { Command, Flags } from "@oclif/core";
 import * as fs from "fs";
 const path = require("path");
 const crypto = require('crypto');
+const QUERY_LEVEL_TRIGGER_ID_1 = 1;
+const TEAMS_CHANNEL_ACTION_ID_2 = 2;
+const AUTOMATION_QUEUE_ACTION_ID_3 = 3;
+const JSON_FORMAT_SPACE_COUNT = 2;
+const ID_MAX_LENGTH = 20;
 
 export default class Monitors extends Command {
   static description = "generate monitor configuration";
@@ -38,14 +43,14 @@ export default class Monitors extends Command {
             name: "nrm_" + serverName + "_fluent-bit." + j,
             server: serverName,
             agent: "fluent-bit." + j,
-            query_level_trigger_id: crypto.createHash('sha256').update(serverName+j+'1').digest('hex').substring(0,20),
-            teams_channel_action_id: crypto.createHash('sha256').update(serverName+j+'2').digest('hex').substring(0,20),
-            automation_queue_action_id: crypto.createHash('sha256').update(serverName+j+'3').digest('hex').substring(0,20),
+            query_level_trigger_id: crypto.createHash('sha256').update(serverName+j+QUERY_LEVEL_TRIGGER_ID_1).digest('hex').substring(0,ID_MAX_LENGTH),
+            teams_channel_action_id: crypto.createHash('sha256').update(serverName+j+TEAMS_CHANNEL_ACTION_ID_2).digest('hex').substring(0,ID_MAX_LENGTH),
+            automation_queue_action_id: crypto.createHash('sha256').update(serverName+j+AUTOMATION_QUEUE_ACTION_ID_3).digest('hex').substring(0,ID_MAX_LENGTH),
           };
           monitorsList.push(monitor);
         }
       }
-      return JSON.stringify(monitorsList, null, 2);
+      return JSON.stringify(monitorsList, null, JSON_FORMAT_SPACE_COUNT);
     };
 
     fs.writeFile(
