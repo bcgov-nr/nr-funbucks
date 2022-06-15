@@ -16,8 +16,9 @@ export default class Monitors extends Command {
       name: string;
       server: string;
       agent: string;
-      id1: number;
-      id2: number;
+      query_level_trigger_id: number;
+      teams_channel_action_id: number;
+      automation_queue_action_id: number;
     };
 
     const { args, flags } = await this.parse(Monitors);
@@ -37,8 +38,9 @@ export default class Monitors extends Command {
             name: "nrm_" + serverName + "_fluent-bit." + j,
             server: serverName,
             agent: "fluent-bit." + j,
-            id1: crypto.createHash('sha256').update(serverName+j+'1').digest('hex').substring(0,20),
-            id2: crypto.createHash('sha256').update(serverName+j+'2').digest('hex').substring(0,20),
+            query_level_trigger_id: crypto.createHash('sha256').update(serverName+j+'1').digest('hex').substring(0,20),
+            teams_channel_action_id: crypto.createHash('sha256').update(serverName+j+'2').digest('hex').substring(0,20),
+            automation_queue_action_id: crypto.createHash('sha256').update(serverName+j+'3').digest('hex').substring(0,20),
           };
           monitorsList.push(monitor);
         }
