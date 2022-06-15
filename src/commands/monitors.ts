@@ -16,7 +16,6 @@ export default class Monitors extends Command {
   static examples = ['<%= config.bin %> <%= command.id %>'];
 
   static args = [{name: 'filePath'}];
-
   public async run(): Promise<void> {
 
     type Monitor = {
@@ -31,7 +30,7 @@ export default class Monitors extends Command {
     const {args} = await this.parse(Monitors);
 
     const filePath = args['filePath'];
-    const monitorJson = function (): string {
+    const monitorJson = function(): string {
       let monitorsList: Monitor[] = [];
       const ipFile = fs
         .readFileSync(filePath, 'utf-8')
