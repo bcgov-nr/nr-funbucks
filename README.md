@@ -336,3 +336,11 @@ DESCRIPTION
   Update installed plugins.
 ```
 <!-- commandsstop -->
+
+## `Generate Monitors`
+
+To run: 
+
+./bin/dev monitors
+
+monitors.json file created in the output folder
