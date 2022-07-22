@@ -1,6 +1,7 @@
-import {Command, Flags} from '@oclif/core';
 import * as fs from 'fs';
 import * as path from 'path';
+
+import {Command, Flags} from '@oclif/core';
 import {RenderService} from '../services/render.service';
 import {ServerConfig} from '../util/types';
 import {SERVER_CONFIG_BASEPATH} from '../constants/paths';
@@ -10,11 +11,11 @@ import {FB_FILTER_LIMIT, FB_INPUT_LIMIT, FB_PARSER_LIMIT} from '../constants/lim
  * Generate command for funbucks
  */
 export default class Gen extends Command {
-  static description = 'generate fluentbit configuration'
+  static description = 'generate fluentbit configuration';
 
   static examples = [
     '<%= config.bin %> <%= command.id %>',
-  ]
+  ];
 
   static flags = {
     server: Flags.string({char: 's', required: true, description: 'server to render the config for'}),
@@ -30,7 +31,7 @@ export default class Gen extends Command {
       char: 'm',
       description: 'render output in multiple agents if necessary',
     }),
-  }
+  };
 
   /**
    * Generate command

@@ -45,9 +45,9 @@ export class RenderService {
   private measureTypes: {
     [Property in keyof MEASURE_TYPES]: string[];
   } = {
-    historic: [],
-    instant: [],
-  };
+      historic: [],
+      instant: [],
+    };
 
   /**
    * The set of ids
