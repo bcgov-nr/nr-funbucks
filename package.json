@@ -19,7 +19,7 @@
   ],
   "dependencies": {
     "@oclif/core": "^4.0.21",
-    "@oclif/plugin-help": "^6.2.11",
+    "@oclif/plugin-help": "^6.2.13",
     "@oclif/plugin-plugins": "^5.4.7",
     "nunjucks": "^3.2.4",
     "semver": "^7.6.3",
