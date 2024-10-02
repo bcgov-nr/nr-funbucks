@@ -39,8 +39,23 @@ export class GeneratorService {
           new RenderService(flags.multiple ? `fluent-bit.${agentCount}` : ''),
         );
         await serviceArr[agentCount].init(flags.local);
+        // Add fluent bit metrics for every agent
+        serviceArr[agentCount].writeApp(
+          {
+            id: `metrics_otel_fluentbit`,
+            type: 'metric_otel_fluentbit',
+            context: {
+              app: 'fluentbit',
+              component: `fluent-bit.${agentCount}`,
+              childProcess: true,
+              agentCount,
+            },
+          },
+          serverConfig,
+          flags.context,
+          flags.skipOutput ?? false,
+        );
         if (!flags.local && !serverConfig.disableFluentBitMetrics) {
-          // Add fluent bit metrics for every agent
           serviceArr[agentCount].writeApp(
             {
               id: `metrics_fluentbit_process`,

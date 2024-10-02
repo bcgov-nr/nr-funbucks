@@ -1,0 +1,10 @@
+{
+  "measurementType": "instant",
+  "os": ["linux"],
+  "context": {
+    "inputScrapeIntervalSec": 5
+  },
+  "files": [
+    { "tmpl": "input/inputs.conf.njk", "type": "input"}
+  ]
+}

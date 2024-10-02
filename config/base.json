@@ -3,10 +3,12 @@
     "appPathJq": "/sw_ux/bin/jq",
     "fluentLogLevel": "info",
     "!fluentLogFile": "{{ 'E:/apps_nt' if os === 'windows' else '/apps_ux'}}/logs/agents/fluent-bit/fluent-bit.{{agentCount}}.log",
+    "!fluentLogPath": "{{ 'E:/apps_nt' if os === 'windows' else '/apps_ux'}}/logs/agents/fluent-bit",
     "fluentLogFileEnabled": true,
     "!inputDbFile": "{{ 'E:' if os === 'windows'}}/apps_data/agents/fluent-bit/fluent-bit-logs.db",
     "inputTailMemBufLimit": "5MB",
     "inputTailIgnoreOlder": "7d",
+    "inputOtelPort": 4318,
     "outputAwsKinesisRetryLimit": 3,
     "outputAwsKinesisEnabled": true,
     "outputStdoutEnabled": false
@@ -14,6 +16,7 @@
   "localContextOverride": {
     "appPathJq": "jq",
     "!fluentLogFile": "/tmp/agent.log",
+    "!fluentLogPath": "/tmp",
     "localLogsPathPrefix": "/data",
     "!inputDbFile": "/tmp/fluent-bit-logs.db",
     "outputAwsKinesisEnabled": false,
@@ -21,6 +24,7 @@
     "outputStdoutEnabled": true
   },
   "files": [
+    { "tmpl": "otel-inputs.conf.njk" },
     { "tmpl": "filters.conf.njk" },
     { "tmpl": "fluent-bit.conf.njk" },
     { "tmpl": "generic_json_parsers.conf.njk" },

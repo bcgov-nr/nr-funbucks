@@ -1,8 +1,8 @@
 {
   "address": "localhost",
-  "fluentBitRelease": "2.0.5",
+  "fluentBitRelease": "3.1.0",
   "os": "linux",
-  "os_variant": "rhel7",
+  "os_variant": "rhel9",
   "apps": [
     {
       "type": "metric_host_cpu", "context": {

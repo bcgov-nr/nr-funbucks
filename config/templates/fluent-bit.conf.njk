@@ -5,6 +5,10 @@
 {%- endif %}
     Parsers_File    parsers.conf
 
+{%- if agentCount == 0 and inputOtelPort %}
+@INCLUDE otel-inputs.conf
+{%- endif %}
+
 {% for input in files_input -%}
 @INCLUDE {{input}}
 {% endfor %}

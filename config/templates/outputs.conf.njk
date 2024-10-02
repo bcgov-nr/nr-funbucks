@@ -1,22 +1,29 @@
 {% if outputAwsKinesisEnabled -%}
 [OUTPUT]
     Name  kinesis_streams
-    Match *
+    Match_Regex ^(?!telemetry.*$).*
     region ca-central-1
     stream ${AWS_KINESIS_STREAM}
     role_arn ${AWS_KINESIS_ROLE_ARN}
     Retry_Limit {{outputAwsKinesisRetryLimit}}
 {% endif -%}
+{% if agentCount == 0 %}
+[OUTPUT]
+    Name  file
+    Match telemetry
+    Path  {{fluentLogPath}}
+    File  otel-telemetry.log
+{% endif -%}
 {% if outputStdoutEnabled %}
 [OUTPUT]
     Name  stdout
-    Match *
+    Match_Regex ^(?!telemetry.*$).*
     Format json_lines
 {% endif -%}
 {% if outputLocalLambdaEnabled %}
 [OUTPUT]
     Name http
-    Match *
+    Match_Regex ^(?!telemetry.*$).*
     Host 127.0.0.1
     URI /?print=true
     Port 3000
