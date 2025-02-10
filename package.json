@@ -18,37 +18,37 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@oclif/core": "^4.2.3",
-    "@oclif/plugin-help": "^6.2.21",
-    "@oclif/plugin-plugins": "^5.4.25",
+    "@oclif/core": "^4.2.6",
+    "@oclif/plugin-help": "^6.2.25",
+    "@oclif/plugin-plugins": "^5.4.31",
     "nunjucks": "^3.2.4",
-    "semver": "^7.6.3",
+    "semver": "^7.7.1",
     "yaml": "^2.7.0"
   },
   "devDependencies": {
-    "@oclif/test": "^4.1.7",
+    "@oclif/test": "^4.1.9",
     "@types/chai": "^5.0.1",
     "@types/eslint__js": "^8.42.3",
     "@types/mocha": "^10.0.10",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.13.1",
     "@types/nunjucks": "^3.2.6",
     "@types/semver": "^7.5.8",
-    "@typescript-eslint/eslint-plugin": "^8.20.0",
-    "@typescript-eslint/parser": "^8.20.0",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
+    "@typescript-eslint/parser": "^8.23.0",
     "chai": "^5.1.2",
-    "eslint": "^9.18.0",
+    "eslint": "^9.20.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-jest": "^28.11.0",
-    "eslint-plugin-prettier": "^5.2.2",
+    "eslint-plugin-prettier": "^5.2.3",
     "jest": "^29.7.0",
-    "mocha": "^11.0.1",
-    "oclif": "^4.17.13",
+    "mocha": "^11.1.0",
+    "oclif": "^4.17.27",
     "shx": "^0.3.4",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.20.0"
+    "typescript-eslint": "^8.23.0"
   },
   "oclif": {
     "bin": "nr-funbucks",
@@ -81,13 +81,5 @@
   "keywords": [
     "oclif"
   ],
-  "types": "dist/index.d.ts",
-  "bundleDependencies": [
-    "@oclif/core",
-    "@oclif/plugin-help",
-    "@oclif/plugin-plugins",
-    "nunjucks",
-    "semver",
-    "yaml"
-  ]
+  "types": "dist/index.d.ts"
 }

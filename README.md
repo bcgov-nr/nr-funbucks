@@ -21,7 +21,7 @@ The '-l' flag here ensures log paths are setup for local testing in a Podman con
 Example 2: Generate for a server and a specific application
 
 ```
-$ ./bin/dev gen -l -s syncronicity -a metrics_isss
+$ ./bin/dev gen -l -s midway -a rrt-war
 ```
 
 The '-a' flag here limits the generated output to only this "application" id. This may be useful if you are dealing with a server with many applications on it.
