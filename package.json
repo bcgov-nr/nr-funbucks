@@ -23,7 +23,7 @@
     "@oclif/plugin-plugins": "^5.4.36",
     "nunjucks": "^3.2.4",
     "semver": "^7.7.1",
-    "yaml": "^2.7.1"
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
     "@oclif/test": "^4.1.12",
