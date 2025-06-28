@@ -22,7 +22,7 @@
     "@oclif/plugin-help": "^6.2.27",
     "@oclif/plugin-plugins": "^5.4.36",
     "nunjucks": "^3.2.4",
-    "semver": "^7.7.1",
+    "semver": "^7.7.2",
     "yaml": "^2.7.1"
   },
   "devDependencies": {
