@@ -18,7 +18,7 @@
     "/oclif.manifest.json"
   ],
   "dependencies": {
-    "@oclif/core": "^4.3.0",
+    "@oclif/core": "^4.4.0",
     "@oclif/plugin-help": "^6.2.27",
     "@oclif/plugin-plugins": "^5.4.36",
     "nunjucks": "^3.2.4",
