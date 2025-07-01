@@ -33,7 +33,7 @@
     "@types/nunjucks": "^3.2.6",
     "@types/semver": "^7.7.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
-    "@typescript-eslint/parser": "^8.31.1",
+    "@typescript-eslint/parser": "^8.35.1",
     "chai": "^5.2.0",
     "eslint": "^9.25.1",
     "eslint-config-google": "^0.14.0",
